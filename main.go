@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 // import "rsc.io/quote"
+
+func httpHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "hello %s welcome to the server", r.URL.Path[1:])
+}
+
 
 func main() {
 	// fmt.Println(quote.Go())
@@ -16,6 +24,8 @@ func main() {
 	var call = fib(6)
 
 	fmt.Print(call)
+	http.HandleFunc("/", httpHandler)
+	http.ListenAndServe(":9000", nil)
 }
 
 
