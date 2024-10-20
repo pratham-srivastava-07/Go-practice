@@ -22,10 +22,14 @@ func main() {
 		fmt.Println(arr[i])
 	}
 	var call = fib(6)
+	
+	var name string = "hello"
+	fmt.Println(name)
 
 	fmt.Print(call)
 	http.HandleFunc("/", httpHandler)
 	http.ListenAndServe(":9000", nil)
+
 }
 
 
