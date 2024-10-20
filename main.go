@@ -26,6 +26,21 @@ func main() {
 	var name string = "hello"
 	fmt.Println(name)
 
+	varType := func(i interface{}) {
+		switch t:=i.(type) {
+		case int:
+			fmt.Println("int")
+		case string:
+			fmt.Println("string")
+		case bool:
+			fmt.Println("boolean")
+		default:
+			fmt.Println("others", t)
+		}
+	}
+
+	varType("jsuhnjd")
+
 	fmt.Print(call)
 	http.HandleFunc("/", httpHandler)
 	http.ListenAndServe(":9000", nil)
@@ -40,3 +55,6 @@ func fib(n int) int {
 		return fib(n-1) + fib(n-2)
 	}
 }
+
+
+
