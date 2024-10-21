@@ -15,9 +15,13 @@ func main() {
 	// fmt.Println(quote.Go())
 	var x = 60
 	var arr = []int{40, 50, x, 90}
-
+	var ans = [5]int{5, 4, 5,6,7} //initializes array with elements
+	fmt.Println(ans) 
+	// var vec [5]int   --> declares an int array named vec
 	fmt.Println("hello go")
-
+	// for 2d array
+	nums := [3][3]int {{1,2,3}, {4,5,6}}
+	fmt.Println(nums)
 	for i := 0; i < len(arr); i++ {
 		fmt.Println(arr[i])
 	}
@@ -42,8 +46,8 @@ func main() {
 	varType("jsuhnjd")
 
 	fmt.Print(call)
-	http.HandleFunc("/", httpHandler)
-	http.ListenAndServe(":9000", nil)
+	// http.HandleFunc("/", httpHandler)
+	// http.ListenAndServe(":9000", nil)
 
 }
 
