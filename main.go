@@ -34,6 +34,11 @@ package main
 
 import "fmt"
 
+type shape interface {
+	area()
+	perimeter()
+}
+
 type messageToSend struct {
 	message   string
 	sender    user
@@ -44,6 +49,10 @@ type user struct {
 	name   string
 	number int
 }
+type rect struct {
+	width int
+	height int
+}
 
 func canSendMessage(mToSend messageToSend) bool {
 	if mToSend.sender.name == "" || mToSend.sender.number == 0{
@@ -52,9 +61,31 @@ func canSendMessage(mToSend messageToSend) bool {
 	return true
 }
 
+func area(r rect) int {
+	return r.width * r.height
+}
+
+
+func getUser(resolve,  err string) string {
+	return "some data"
+}
 func main() {
 	res := canSendMessage(messageToSend{message: "hello", sender: user{name: "", number: 738839}, recipient: user{name: "gungun", number: 5555}})
 	fmt.Println(res)
+
+	rectArea:= area(rect{width: 7, height: 8})
+	fmt.Println((rectArea))
+
+	// error handling in go
+
+resolve, err := getUser()
+
+if err != nil {
+	fmt.Println(err)
+	return
+} else {
+	fmt.Println(resolve)
+}
 }
 
 
